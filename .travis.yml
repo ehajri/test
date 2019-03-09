@@ -5,7 +5,7 @@ branches:
 script:
 - echo $TRAVIS_TAG
 - echo $TRAVIS_BRANCH
-- echo "final test!"
+- echo "final test! .."
 after_success:
 - export GIT_TAG=v0.1.$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
