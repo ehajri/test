@@ -1,17 +1,10 @@
 language: minimal
-# branches:
-#   only:
-#     - staging
+branches:
+  only:
+    - stage
 script:
-- echo 1
-- pwd
-- echo 2
-- echo 3
-- echo 4
 - echo $TRAVIS_TAG
 - echo $TRAVIS_BRANCH
-- echo 5
-- echo 6
 after_success:
 - export GIT_TAG=v0.1.$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
