@@ -5,10 +5,12 @@ branches:
 script:
 - echo $TRAVIS_TAG
 - echo $TRAVIS_BRANCH
+- echo "final test!"
 after_success:
 - export GIT_TAG=v0.1.$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-- git push -q https://$TAGPERM@github.com/ehajri/test --tags
+- git tag prod -fam "Production tag"
+- git push -q https://$TAGPERM@github.com/ehajri/test --tags --force
 env:
   global:
     secure: w1rA3CukvTQTqarWilycRNqdAMY7+md0mJIdT7UW7yqrw/OtgBQfEzNPiXhEqCHJdKuopubdL/VCFSdTeFBAG010BSfVIwiY8w/8ipFYQoINNRDBwlI3+C7/QbNu5VQMrFCAwI9Zxah4T39GZr8hQfs7ITrK/hhRpCaCgR+MaHWxKbf2ytxHCV5bO1GqvgNV7ZH0qlWtfmK6IdV33LiCMLtRty1yvHa8UA4RKcPJxLHQFFLSTPV1MTCE+unKDMgCG669HDx1UzXqnJi7JdWdfKAjNJMkNrmRVG5PS3vVtizYOajg/ZiH8mC9D02tkM+YYnxoq8qYyY8bMSxPZK42uCJB24mAMT/gISGKaOk7EeBh0F2zA67uSrlQRyC/gfKN03FThbTx464EKhdmG3HqH5NRt0eu0Tqu9sTd/aBjLJWtgomVxz4YvL4jOXO6SBTjM0QFHPk1devn8yZlZidU31RgzFwq769SuKa24VePR9UIL4oahp3LShMfFH5RjtXaqGfO4QlbhMSUITiSdb9xCSrhNS8GoZ1C12BZTRHSuwtoCaMdPHt0hlUVRgyO4+EdUke3kw14jshIlJjHSdLl5K5pDRuuwZyE1kRL9D7GEyl+3HbZjGEpiUFtlJ6XVXLHzSNOttXGwOWfpzNZEE429zbsCsAKkBlb0mwlwKtww9w=
